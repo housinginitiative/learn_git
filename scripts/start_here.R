@@ -43,8 +43,8 @@ data_path = str_c(Sys.getenv("BOX_PATH"),
 
 # Now you should have some delicious LIHTC data. This is from the HUD LIHTC properties database,
 # and being public data there's no requirement to keep this off github, but it's better practice
-# to keep all data sources in the same place and most projects will include at least some
-# non-public or privileged data.
+# to keep all data sources for the same project in the same place, and most projects will include 
+# at least some non-public or privileged data.
 data_test <- read_csv(data_path, guess_max = Inf)
 
 
