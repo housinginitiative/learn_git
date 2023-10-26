@@ -15,6 +15,10 @@ library(readxl)
 library(skimr)
 library(usethis)
 
+# Note: The following assumes that you are using RStudio and RStudio's Project structure.
+# Otherwise, references to project-internal files will not work. 
+# However, the .Rproj file itself should not be committed, just the files that you modify.
+# For this project, that should be enforced by the gitignore file.
 here::i_am("scripts/start_here.R")
 
 # Set up Box path -----------------------------------------------------------------------------
@@ -46,6 +50,25 @@ data_path = str_c(Sys.getenv("BOX_PATH"),
 # to keep all data sources for the same project in the same place, and most projects will include 
 # at least some non-public or privileged data.
 data_test <- read_csv(data_path, guess_max = Inf)
+
+# Analysis products ---------------------------------------------------------------------------
+
+# For the same reasons relating to data, above, you should not commit intermediate data products
+# that include any personally protected information to git. Whether aggregated, non-sensitive data 
+# that are written out should be stored on Box or Github may vary by project, but here we'll write to Box.
+
+data_pennsylvania <- data_test %>% 
+  filter(proj_st == "PA")
+
+# write_rds(data_pennsylvania,
+#           here(Sys.getenv("BOX_PATH"),
+#                "Learn git example data",
+#                "Outputs",
+#                "LIHTC_PA.RDS"))
+
+
+  
+
 
 
 
