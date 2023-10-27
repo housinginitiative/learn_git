@@ -7,6 +7,7 @@ Getting set up with a Git workflow does take some up-front investment, but it do
 1. Register a Github account if you don't have one. A straightforward rendering of your name is recommended.
 2. Join Penn's [Github Campus Program](https://github.com/upenn), which will allow you access to some features like private repositories.
 3. Make sure [git is installed](https://happygitwithr.com/install-git) in your system. If you have a Mac it's probably already installed.
+4. Download [Github Desktop](https://desktop.github.com/). This is an GUI application to execute Git commands. You can also use the command line if you prefer (aka git-bash). Using the RStudio link to Git is clunky and lacks some basic tools like branch merging that are necessary, so you might as well use a GUI/command line anyway.
 
 Once you're set up, try cloning this repository then trying out some basic git actions like pushing and pulling; [this](https://happygitwithr.com/) is a great resource specific to using Git/Github with R. 
 
