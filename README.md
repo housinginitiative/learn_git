@@ -1,5 +1,7 @@
 # Learning Git
 
+## Setup
+
 We want to be able to work on the same project seamlessly, without having to pass manually versioned files back and forth or being limited to only one person actively editing a file at the same time. Git is a version control system that lets collaborators work together on the same codebase seamlessly. In a research context, having snapshots of past analyses and having an authoritative source of code is also important for ensuring reproducibility. Github is the most popular platform for hosting Git repositories, and HIP's repositories are hosted here.
 
 Getting set up with a Git workflow does take some up-front investment, but it doesn't need to be difficult. Here are the steps you should follow before continuing.
@@ -13,12 +15,14 @@ Once you're set up, try cloning this repository then trying out some basic git a
 
 We use Git/Github in conjunction with Box, because we often deal with data that are priviliged or contains personally identifiable information (PII). Github is NOT appropriate for any PII data, but Box (with appropriate privilege controls) is. Be sure to look at the start_here.R script under the scripts folder and follow the directions to make sure your R environment knows about your personal Box path. **NO** non-public data should be committed to Git or stored anywhere other than Box. (Public data like Census data could in principle be stored on Github but it's better to keep all data source files in the same place (i.e., Box), and also to keep large files off Github.)
 
-Some tips:
+## Some tips
 
-1. Github Desktop is fairly smart about suggesting actions. If it suggest to pull from the origin repository, you should; any merge conflicts that arise are best fixed earlier than later.
-2. Always make sure your local repository is up to date with the remote repository before starting work.
-3. Corollary: Always pull in any changes to your local repository before pushing.
-4. If **any** changes are made to the code by a pull, it's imperative to re-start RStudio and run the code again. If the new version of the code changed any analysis steps upstream, the R objects living in your environment will not have changed, and so you could go on working based on outdated assumptions about what *your* code is based on.
-5. To minimize this, examine diffs between the newest commits and also keep your colleagues apprised of when their work might be affected by yours.
-6. It is best practice to not commit changes directly to main. Instead, create a branch for whatever task you are working on, and when you're finished with that task submit a pull request to merge in your branch to main. GitHub makes this easy (and in fact, the default for merging branches). This is a little silly if you are the only one working on a repository but it will make the development process more clear to others looking in the history. If there are any collaborators, it lets them know what is going on. The other collaborators should acklowledge the pull request and approve it expeditiously after any discussion is finished.
-7. When you're working on a branch, take care to avoid your branch from diverging too much from main. At least once a day (e.g., before starting work), merge-commit main *into* your branch. Any merge conflicts that arise are best resolved earlier than later.
+1. Github Desktop is fairly smart about suggesting actions. These suggestions should generally be followed.
+2. Remember that your *local* repository is not the same as the *remote* repository (also called 'origin'). They are linked but independent entities. Changes made to the remote repository won't be visible on your local machine unless you take some action. You won't even know that there *are* changes to the remote repo unless you fetch it.
+3. Always make sure your local repository is up to date with the remote repository before starting work. ('Fetch Origin' then 'Pull Origin' on Github Desktop.)
+4. Corollary: Always pull in any changes to your local repository before pushing.
+5. Remember to commit before doing anything else to change the state of your local or remote repository. Make the commit message clear and don't use the default message; like writing code comments, note the reason for the change, not the content of the change.
+6. If **any** changes are made to the code by a pull, it's imperative to re-start RStudio and run the code again. If the new version of the code changed any analysis steps upstream (or changed any intermediate analysis products you're relying on), the R objects living in your environment will not have changed, and so you could go on working based on outdated assumptions about what *your* code is based on.
+7. To minimize this, examine diffs between the newest commits and also keep your colleagues apprised of when their work might be affected by yours.
+8. It is best practice to not commit changes directly to main. Instead, create a branch for whatever task you are working on, and when you're finished with that task, submit a pull request to merge in your branch to main. GitHub makes this easy (and in fact, the default option for merging branches). This is a little silly if you are the only one working on a repository, but it will make the development process more clear to others looking in the history. If there are any collaborators, it lets them know what is going on. The other collaborators should acklowledge the pull request and approve it expeditiously after any discussion is finished.
+9. When you're working on a branch, take care to avoid your branch from diverging too much from main. At least once a day (e.g., before starting work), merge-commit main into *your* branch. Any merge conflicts that arise are best resolved earlier than later.
