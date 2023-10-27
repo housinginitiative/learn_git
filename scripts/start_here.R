@@ -69,6 +69,9 @@ data_pennsylvania <- data_test %>%
 data_pennsylvania_philadelphia <- data_pennsylvania %>% 
   filter(proj_cty == "PHILADELPHIA")
 
+properties_by_year <- data_pennsylvania_philadelphia %>% 
+  tabyl(yr_pis)
+
 # Testing simple push
 
 # Testing remote changes
