@@ -67,7 +67,8 @@ data_pennsylvania <- data_test %>%
 #                "LIHTC_PA.RDS"))
 
 data_pennsylvania_philadelphia <- data_pennsylvania %>% 
-  filter(proj_cty == "PHILADELPHIA")
+  filter(proj_cty == "PHILADELPHIA") %>% 
+  filter(yr_pis != "8888")
 
 properties_by_year <- data_pennsylvania_philadelphia %>% 
   tabyl(yr_pis)
