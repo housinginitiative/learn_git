@@ -66,6 +66,9 @@ data_pennsylvania <- data_test %>%
 #                "Outputs",
 #                "LIHTC_PA.RDS"))
 
+data_pennsylvania_philadelphia <- data_pennsylvania %>% 
+  filter(proj_cty == "PHILADELPHIA")
+
 # Testing simple push
   
 
