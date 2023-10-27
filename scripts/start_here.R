@@ -58,7 +58,8 @@ data_test <- read_csv(data_path, guess_max = Inf)
 # that are written out should be stored on Box or Github may vary by project, but here we'll write to Box.
 
 data_pennsylvania <- data_test %>% 
-  filter(proj_st == "PA")
+  filter(proj_st == "PA") %>% 
+  rename(proj_city = proj_cty)
 
 # write_rds(data_pennsylvania,
 #           here(Sys.getenv("BOX_PATH"),
