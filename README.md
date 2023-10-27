@@ -12,3 +12,5 @@ Getting set up with a Git workflow does take some up-front investment, but it do
 Once you're set up, try cloning this repository then trying out some basic git actions like pushing and pulling; [this](https://happygitwithr.com/) is a great resource specific to using Git/Github with R. 
 
 We use Git/Github in conjunction with Box, because we often deal with data that are priviliged or contains personally identifiable information (PII). Github is NOT appropriate for any PII data, but Box (with appropriate privilege controls) is. Be sure to look at the start_here.R script under the scripts folder and follow the directions to make sure your R environment knows about your personal Box path. **NO** non-public data should be committed to Git or stored anywhere other than Box. (Public data like Census data could in principle be stored on Github but it's better to keep all data source files in the same place (i.e., Box), and also to keep large files off Github.)
+
+Edit
