@@ -47,5 +47,6 @@ data_path = str_c(Sys.getenv("BOX_PATH"),
 # at least some non-public or privileged data.
 data_test <- read_csv(data_path, guess_max = Inf)
 
+# Pulling test
 
 
