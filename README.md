@@ -26,10 +26,10 @@ In terms of integrating Box with Git, the easiest is an old-fashioned method (th
 To do this, do the following once per machine:
 
 1. Make sure you have the Box Desktop application installed so there is a filepath to begin with.
-2. Install the R usethis package if not already installed.
+2. Install the R `usethis` package if not already installed.
 3. From an R console, run `usethis::edit_r_environ()`
 4. In the editor that pops up, type a new line: `BOX_PATH = "PATH"`.
-5. "PATH" should be replaced with your own machine's path to the top-level Box directory, for example: /Users/USERNAME/Library/CloudStorage/Box-Box
+5. "PATH" should be replaced with your own machine's path to the top-level Box directory, for example: `"/Users/USERNAME/Library/CloudStorage/Box-Box"`
 6. Note the lack of a final slash at the end of the path. Windows users should use the slash and not the native backslash.
 
 When a Box path is desired, users should concatenate `Sys.getenv("BOX_PATH")` with the location of their file in the Box structure.
