@@ -19,7 +19,7 @@ Once you're set up, try cloning this repository then trying out some basic git a
 
 ### Box
 
-We use Git/Github in conjunction with Box, because we often deal with data that are priviliged or contains personally identifiable information (PII). Github is NOT appropriate for any PII data, but Box (with appropriate privilege controls) is. **NO** non-public data should be committed to Git or stored anywhere other than Box. (Public data like Census data could in principle be stored on Github but it's better to keep all data source files in the same place (i.e., Box), and also to keep large files off Github.)
+We use Git/Github in conjunction with Box, because we often deal with data that are privileged or contain personally identifiable information (PII). Github is NOT appropriate for any PII data, but Box (with appropriate privilege controls) is. **NO** non-public data should be committed to Git or stored anywhere other than Box. (Public data like Census data could in principle be stored on Github but it's better to keep all data source files in the same place (i.e., Box), and also to keep large files off Github.)
 
 In terms of integrating Box with Git, the easiest is an old-fashioned method (there are APIs available but they come with certain limitations): simply referencing the file location with a filepath to the appropriate Box folder. This requires a small amount of setup because individual machines will have different paths to Box: this individually-variable path should be stored in R's Renviron startup file so that it can be recalled programmatically. 
 
