@@ -29,10 +29,10 @@ To do this, do the following once per machine:
 2. Install the R `usethis` package if not already installed.
 3. From an R console, run `usethis::edit_r_environ()`
 4. In the editor that pops up, type a new line: `BOX_PATH = "PATH"`.
-5. "PATH" should be replaced with your own machine's path to the top-level Box directory, for example: `"/Users/USERNAME/Library/CloudStorage/Box-Box"`
+5. "PATH" should be replaced with your own machine's path to the top-level Box directory (as a string), for example: `"/Users/USERNAME/Library/CloudStorage/Box-Box"`
 6. Note the lack of a final slash at the end of the path. Windows users should use the slash and not the native backslash.
 
-When a Box path is desired, users should concatenate `Sys.getenv("BOX_PATH")` with the location of their file in the Box structure.
+When a Box path is desired in analysis code, users should concatenate `Sys.getenv("BOX_PATH")` with the location of their file in the Box structure, which should be the same for everyone.
 
 Note that only data should be stored on Box. Files and directories that will be under version control should live on your local machine and on Github, not anywhere on Box. A Readme should be provided on the Box project folder to point to the Github repo. No PII should be hardcoded into analysis code.
 
@@ -40,10 +40,12 @@ Note that only data should be stored on Box. Files and directories that will be 
 
 1. Github Desktop is fairly smart about suggesting actions. These suggestions should generally be followed.
 2. Remember that your *local* repository is not the same as the *remote* repository (also called 'origin'). They are linked but independent entities. Changes made to the remote repository won't be visible on your local machine unless you take some action. You won't even know that there *are* changes to the remote repo unless you fetch it.
-3. Always make sure your local repository is up to date with the remote repository before starting work. ('Fetch Origin' then 'Pull Origin' on Github Desktop.)
-4. Corollary: Always pull in any changes to your local repository before pushing.
-5. Remember to commit before doing anything else to change the state of your local or remote repository. Make the commit message clear and don't use the default message; like writing code comments, note the reason for the change, not the content of the change.
-6. If **any** changes are made to the code by a pull, it's imperative to re-start RStudio and run the code again. If the new version of the code changed any analysis steps upstream (or changed any intermediate analysis products you're relying on), the R objects living in your environment will not have changed, and so you could go on working based on outdated assumptions about what *your* code is based on.
-7. To minimize this, examine diffs between the newest commits and also keep your colleagues apprised of when their work might be affected by yours.
-8. It is best practice to not commit changes directly to main. Instead, create a branch for whatever task you are working on, and when you're finished with that task, submit a pull request to merge in your branch to main. GitHub makes this easy (and in fact, the default option for merging branches). This is a little silly if you are the only one working on a repository, but it will make the development process more clear to others looking in the history. If there are any collaborators, it lets them know what is going on. The other collaborators should acklowledge the pull request and approve it expeditiously after any discussion is finished.
-9. When you're working on a branch, take care to avoid your branch from diverging too much from main. At least once a day (e.g., before starting work), merge-commit main into *your* branch. Any merge conflicts that arise are best resolved earlier than later.
+3. The remote repository (on GitHub) is the authoritative source because it's the once that everyone in the project (and any future readers) have access to.
+4. Always make sure your local repository is up to date with the remote repository before starting work. ('Fetch Origin' then 'Pull Origin' on Github Desktop.)
+5. Corollary: Always pull in any changes to your local repository before pushing.
+6. Remember to commit before doing anything else to change the state of your local or remote repository. Make the commit message clear and don't use the default message; like writing code comments, note the reason for the change, not the content of the change.
+7. Committing only takes a snapshot of a particular branch on a particular repository. It does *not* update the remote repository, which needs to be done with a separate action.
+8. If **any** changes are made to the code by a pull, it's imperative to re-start RStudio and run the code again. If the new version of the code changed any analysis steps upstream, the R objects living in your environment will not have changed, and so you could go on working based on outdated assumptions about what *your* code is based on. Note that this includes not only the R script you're working on, but any code that would affect any intermediate data products you're using.
+9. To minimize this kind of confusion, examine diffs between the newest commits and also keep your colleagues apprised of when their work might be affected by yours.
+10. It is best practice to not commit changes directly to main. Instead, create a branch for whatever task you are working on, and when you're finished with that task, submit a pull request to merge in your branch to main. GitHub makes this easy (and in fact, the default option for merging branches). This is a little silly if you are the only one working on a repository, but it will make the development process more clear to others looking in the history. If there are any collaborators, it lets them know what is going on. The other collaborators should acklowledge the pull request and approve it expeditiously after any discussion is finished.
+11. When you're working on a branch, take care to avoid your branch from diverging too much from main. At least once a day (e.g., before starting work), merge-commit main into *your* branch, which leaves main unaffected but pulls in any changes to main into your working branch. Any merge conflicts that arise are best resolved earlier than later.
