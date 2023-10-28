@@ -1,8 +1,12 @@
 # Learning Git
 
-## Setup
+## Motivation
 
 We want to be able to work on the same project seamlessly, without having to pass manually versioned files back and forth or being limited to only one person actively editing a file at the same time. Git is a version control system that lets collaborators work together on the same codebase seamlessly. In a research context, having snapshots of past analyses and having an authoritative source of code is also important for ensuring reproducibility. Github is the most popular platform for hosting Git repositories, and HIP's repositories are hosted here.
+
+## Setup
+
+### Git/Github
 
 Getting set up with a Git workflow does take some up-front investment, but it doesn't need to be difficult. Here are the steps you should follow before continuing.
 
@@ -13,7 +17,24 @@ Getting set up with a Git workflow does take some up-front investment, but it do
 
 Once you're set up, try cloning this repository then trying out some basic git actions like pushing and pulling; [this](https://happygitwithr.com/) is a great resource specific to using Git/Github with R. 
 
-We use Git/Github in conjunction with Box, because we often deal with data that are priviliged or contains personally identifiable information (PII). Github is NOT appropriate for any PII data, but Box (with appropriate privilege controls) is. Be sure to look at the start_here.R script under the scripts folder and follow the directions to make sure your R environment knows about your personal Box path. **NO** non-public data should be committed to Git or stored anywhere other than Box. (Public data like Census data could in principle be stored on Github but it's better to keep all data source files in the same place (i.e., Box), and also to keep large files off Github.)
+### Box
+
+We use Git/Github in conjunction with Box, because we often deal with data that are priviliged or contains personally identifiable information (PII). Github is NOT appropriate for any PII data, but Box (with appropriate privilege controls) is. **NO** non-public data should be committed to Git or stored anywhere other than Box. (Public data like Census data could in principle be stored on Github but it's better to keep all data source files in the same place (i.e., Box), and also to keep large files off Github.)
+
+In terms of integrating Box with Git, the easiest is an old-fashioned method (there are APIs available but they come with certain limitations): simply referencing the file location with a filepath to the appropriate Box folder. This requires a small amount of setup because individual machines will have different paths to Box: this individually-variable path should be stored in R's Renviron startup file so that it can be recalled programmatically. 
+
+To do this, do the following once per machine:
+
+1. Make sure you have the Box Desktop application installed so there is a filepath to begin with.
+2. Install the R usethis package if not already installed.
+3. From an R console, run `usethis::edit_r_environ()`
+4. In the editor that pops up, type a new line: `BOX_PATH = "PATH"`.
+5. "PATH" should be replaced with your own machine's path to the top-level Box directory, for example: /Users/USERNAME/Library/CloudStorage/Box-Box
+6. Note the lack of a final slash at the end of the path. Windows users should use the slash and not the native backslash.
+
+When a Box path is desired, users should concatenate `Sys.getenv("BOX_PATH")` with the location of their file in the Box structure.
+
+Note that only data should be stored on Box. Files and directories that will be under version control should live on your local machine and on Github, not anywhere on Box. A Readme should be provided on the Box project folder to point to the Github repo. No PII should be hardcoded into analysis code.
 
 ## Some tips
 
