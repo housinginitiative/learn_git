@@ -40,7 +40,7 @@ Note that only data should be stored on Box. Files and directories that will be 
 
 1. Github Desktop is fairly smart about suggesting actions. These suggestions should generally be followed.
 2. Remember that your *local* repository is not the same as the *remote* repository (also called 'origin'). They are linked but independent entities. Changes made to the remote repository won't be visible on your local machine unless you take some action. You won't even know that there *are* changes to the remote repo unless you fetch it.
-3. The remote repository (on GitHub) is the authoritative source because it's the once that everyone in the project (and any future readers) have access to.
+3. The remote repository (on GitHub) is the authoritative source because it's the one that everyone in the project (and any future readers) has access to.
 4. Always make sure your local repository is up to date with the remote repository before starting work. ('Fetch Origin' then 'Pull Origin' on Github Desktop.)
 5. Corollary: Always pull in any changes to your local repository before pushing.
 6. Remember to commit before doing anything else to change the state of your local or remote repository. Make the commit message clear and don't use the default message; like writing code comments, note the reason for the change, not the content of the change.
