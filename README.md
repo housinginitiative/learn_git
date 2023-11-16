@@ -25,7 +25,7 @@ In terms of integrating Box with Git, the easiest is an old-fashioned method (th
 
 To do this, do the following once per machine:
 
-1. Make sure you have the Box Desktop application installed so there is a filepath to begin with.
+1. Make sure you have the [Box Drive application](https://www.box.com/resources/downloads) installed so there is a filepath to begin with.
 2. Install the R `usethis` package if not already installed.
 3. From an R console, run `usethis::edit_r_environ()`
 4. In the editor that pops up, type a new line: `BOX_PATH = "PATH"`.
