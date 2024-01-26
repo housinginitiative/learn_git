@@ -80,7 +80,11 @@ properties_by_year <- data_pennsylvania_philadelphia %>%
   
 # Katie is here!!
 
+#<<<<<<< HEAD
 # Cypress is here!
 
 
+#=======
+# Sarah was here!
+#>>>>>>> c2417e020495dae1ac74eac0c91e27f7279867dd
 
